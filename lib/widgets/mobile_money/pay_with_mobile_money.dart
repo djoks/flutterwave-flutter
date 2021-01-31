@@ -39,10 +39,6 @@ class _PayWithMobileMoneyState extends State<PayWithMobileMoney> {
 
   @override
   Widget build(BuildContext context) {
-    final String initialPhoneNumber = this.widget._paymentManager.phoneNumber;
-    this._phoneNumberController.text =
-        initialPhoneNumber != null ? initialPhoneNumber : "";
-
     final String currency = this.widget._paymentManager.currency;
     return MaterialApp(
       debugShowCheckedModeBanner: widget._paymentManager.isDebugMode,
@@ -97,8 +93,9 @@ class _PayWithMobileMoneyState extends State<PayWithMobileMoney> {
                     ),
                   ),
                   Visibility(
-                    visible: currency.toUpperCase() == FlutterwaveCurrency.XAF ||
-                        currency.toUpperCase() == FlutterwaveCurrency.XOF,
+                    visible:
+                        currency.toUpperCase() == FlutterwaveCurrency.XAF ||
+                            currency.toUpperCase() == FlutterwaveCurrency.XOF,
                     child: Container(
                       margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                       width: double.infinity,
@@ -212,8 +209,9 @@ class _PayWithMobileMoneyState extends State<PayWithMobileMoney> {
   }
 
   Widget _getNetworksThatAllowMobileMoney() {
-    final networks = FlutterwaveCurrency.getAllowedMobileMoneyNetworksByCurrency(
-        this.widget._paymentManager.currency);
+    final networks =
+        FlutterwaveCurrency.getAllowedMobileMoneyNetworksByCurrency(
+            this.widget._paymentManager.currency);
     return Container(
       height: 220,
       margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
