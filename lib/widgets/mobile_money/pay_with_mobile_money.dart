@@ -72,6 +72,13 @@ class _PayWithMobileMoneyState extends State<PayWithMobileMoney> {
               key: this._formKey,
               child: ListView(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: Text(
+                      'Please note that mobile money verification can take up to 5 minutes to complete.',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ),
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: "Phone Number",
@@ -86,8 +93,8 @@ class _PayWithMobileMoneyState extends State<PayWithMobileMoney> {
                     width: double.infinity,
                     child: TextFormField(
                       decoration: InputDecoration(
-                        labelText: "Voucher",
-                        hintText: "voucher",
+                        labelText: "Voucher (optional)",
+                        hintText: "voucher (optional)",
                       ),
                       controller: this._voucherController,
                     ),
